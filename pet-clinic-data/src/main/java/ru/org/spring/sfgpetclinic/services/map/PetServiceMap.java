@@ -2,9 +2,9 @@ package ru.org.spring.sfgpetclinic.services.map;
 
 import java.util.Set;
 import ru.org.spring.sfgpetclinic.model.Pet;
-import ru.org.spring.sfgpetclinic.services.CrudService;
+import ru.org.spring.sfgpetclinic.services.PetService;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
   @Override
   public Set<Pet> findAll() {
@@ -30,5 +30,10 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
   @Override
   public Pet findById(Long id) {
     return super.findById(id);
+  }
+
+  @Override
+  public Pet findByLastName(String lastName) {
+    return null;
   }
 }
