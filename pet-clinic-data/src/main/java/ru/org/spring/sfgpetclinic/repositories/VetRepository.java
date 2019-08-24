@@ -5,4 +5,5 @@ import ru.org.spring.sfgpetclinic.model.Vet;
 
 public interface VetRepository extends CrudRepository<Vet, Long> {
 
+  Vet findByLastName(String lastName);
 }
