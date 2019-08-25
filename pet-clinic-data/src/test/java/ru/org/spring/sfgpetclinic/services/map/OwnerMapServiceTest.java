@@ -39,7 +39,7 @@ class OwnerMapServiceTest {
 
   @Test
   void delete() {
-    ownerMapService.delete(Owner.builder().id(ownerId).build());
+    ownerMapService.delete(Owner.builder().id(ownerId).lastName(lastName).build());
 
     assertEquals(0, ownerMapService.findAll().size());
   }
