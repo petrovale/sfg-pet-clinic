@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
