@@ -11,12 +11,12 @@ import ru.org.spring.sfgpetclinic.services.PetTypeService;
 
 @Service
 @Profile({"default", "map"})
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
   private final PetTypeService petTypeService;
   private final PetService petService;
 
-  public OwnerServiceMap(PetTypeService petTypeService,
+  public OwnerMapService(PetTypeService petTypeService,
       PetService petService) {
     this.petTypeService = petTypeService;
     this.petService = petService;
@@ -70,6 +70,9 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
   @Override
   public Owner findByLastName(String lastName) {
-    return null;
+    return this.findAll().stream()
+        .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+        .findFirst()
+        .orElse(null);
   }
 }
